@@ -1,0 +1,65 @@
+extends ./layout.jade
+
+block head
+	title Bet Manager
+	script(src="js/vendors/jquery.min.js")
+	link(href='css/styles.css', rel='stylesheet')
+
+block body
+	h1 Bet Manager
+
+	div.taeFormWrapper
+		form(name="taeForm")
+			section.winners
+				div.label banker1 winner
+				input(type="text", name="tin", id='bank1Winner', value='atleti')
+				div.label banker2 winner
+				input(type="text", name="tin", id='bank2Winner', value='madrid')
+				div.label banker3 winner
+				input(type="text", name="tin", id='bank3Winner')
+				div.label bet1 winner
+				input(type="text", name="tin", id='bet1Winner', value='bilbao')
+				div.label bet2 winner
+				input(type="text", name="tin", id='bet2Winner', value='valencia')
+				div.label bet3 winner
+				input(type="text", name="tin", id='bet3Winner', value='sevilla')
+				div.label bet4 winner
+				input(type="text", name="tin", id='bet4Winner', value='villareal')
+				div.label bet5 winner
+				input(type="text", name="tin", id='bet5Winner', value='celta')
+				div.label bet6 winner
+				input(type="text", name="tin", id='bet6Winner')
+				div.label bet7 winner
+				input(type="text", name="tin", id='bet7Winner')
+			section.odds
+				div.label banker1
+				input(type="number", name="tin", id='bank1', value='1.33')
+				div.label banker2
+				input(type="number", name="tin", id='bank2', value='1.33')
+				div.label banker3
+				input(type="number", name="tin", id='bank3')
+				div.label bet1
+				input(type="number", name="tin", id='bet1', value='2.25')
+				div.label bet2
+				input(type="number", name="tin", id='bet2', value='2.3')
+				div.label bet3
+				input(type="number", name="tin", id='bet3', value='1.5')
+				div.label bet4
+				input(type="number", name="tin", id='bet4', value='1.72')
+				div.label bet5
+				input(type="number", name="tin", id='bet5', value='1.53')
+				div.label bet6
+				input(type="number", name="tin", id='bet6')
+				div.label bet7
+				input(type="number", name="tin", id='bet7')
+			section.types
+				div.label BetType
+				input(type="number", name="tin", id='betType', value='3')
+				div.label individual Bet
+				input(type="number", name="tin", id='individualBet', value='1')
+			div.actions
+				input(type="button", value="Calculate", id='calculateButton')
+
+	pre.betResult
+
+	script(src="js/betFormHandler.js")

@@ -1,0 +1,29 @@
+{
+  "name": "pirCalculator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "EduRomoGO",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^2.0.0",
+    "jshint": "^2.8.0",
+    "jshint-stylish": "^2.1.0",
+    "nodemon": "^1.9.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "bower": "^1.7.7",
+    "express": "latest",
+    "jade": "^1.11.0",
+    "require": "latest"
+  },
+  "engines": {
+    "node": "4.4.2"
+  }
+}

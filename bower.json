@@ -1,0 +1,25 @@
+{
+  "name": "calc",
+  "description": "finance",
+  "main": "app.js",
+  "authors": [
+    "EduRomoGO"
+  ],
+  "license": "UNLICENSED",
+  "keywords": [
+    "finance"
+  ],
+  "homepage": "https://github.com/EduRomoGO/financeCalculatorWebApp",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.2"
+  }
+}

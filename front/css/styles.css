@@ -1,0 +1,8 @@
+body {
+	background-color: #DEDEEA;
+}
+
+.winners, .odds {
+	display: inline-block;
+	width: 15%;
+}
