@@ -4,6 +4,7 @@ var express = require('express'),
 		inspector = require('./classInspector'),
 		app = express(),
 		bodyParser = require('body-parser'),
+		getResults = require('./resultsCalculator'),
 		port = 9292;
 
 app.set('views', __dirname + '/views');
@@ -20,14 +21,19 @@ app.get('/', function(req, res) {
 	);
 })
 
-app.post('/bet', function(req, res) {
-	console.log(req.body);
-
-	var betResults = {};
-	var betResultsString = JSON.stringify(betResults, null, 4);
-	// tae = myCalc.calculateTae(req.body.tin, req.body.paymentFrequency);
-	res.send({'betResults': betResultsString});
+app.post('/getResults', function(req, res) {
+	// console.log('req.body');
+	// console.log(req.body);
+	var results = getResults(req.body);
+	var resultsString = JSON.stringify(results, null, 4);
+	res.send({'resultsString': resultsString});
 });
+
+app.get('/voice', function(req, res) {
+	res.render('voice',
+	  { title : 'Home' }
+	);
+})
 
 app.listen(process.env.PORT || port, function() {
 	console.log('server listening on port: ' + port);

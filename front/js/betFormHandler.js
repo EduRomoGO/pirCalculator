@@ -1,21 +1,59 @@
-var button = document.getElementById('calculateButton');
+var button = document.getElementById('calculateButton'),
+		data = {
+			'answers': []
+		},
+		count = 0;
+
+function editData() {
+	var question = $('.question').val(),
+			answer = $('.answer').val();
+
+	// console.log(question);
+	// console.log(answer);
+
+	data.answers.forEach(function (ans) {
+		console.log(ans);
+		console.log(ans.question == question);
+		if (ans.question == question) ans.answer = parseInt(answer, 10);
+	});
+}
+
+$('#answer').on('keyup', function() {
+	var answer = $('#answer').val(),
+			res;
+
+	$('#answer').val('');
+	// console.log(answer);
+
+	count++;
+
+	res = {
+		'question': count,
+		'answer': parseInt(answer, 10)
+	};
+
+	data.answers.push(res);
+	// console.log(data.answers);
+	$('.answers').html(JSON.stringify(data.answers, null, 2));
+});
 
 $('#calculateButton').on('click', function() {
-	var params = {
-		'bank1': $('#bank1').val(),
-		'bank2': $('#bank2').val(),
-		'bank3': $('#bank3').val(),
-		'bet1': $('#bet1').val(),
-		'bet2': $('#bet2').val(),
-		'bet3': $('#bet3').val(),
-		'bet4': $('#bet4').val(),
-		'bet5': $('#bet5').val(),
-		'bet6': $('#bet6').val(),
-		'bet7': $('#bet7').val(),
-		'individualBet': $('#individualBet').val(),
-		'betType': $('#betType').val()
-	};
-	$.post('/bet', params, function(data) {
-		$('.betResult').html('<br>The results calculated are: ' + data.betResults);
+	// console.log('data.answers');
+	// console.log(data.answers);
+	var params = { 'answers': data.answers };
+	$.post('/getResults', params, function(resData) {
+		$('.results').html('<br>The results calculated are: ' + resData.results);
 	});
 });
+
+$('#removeButton').on('click', function() {
+	data.answers.pop();
+	count--;
+	$('.answers').html(JSON.stringify(data.answers, null, 2));
+});
+
+$('#editButton').on('click', function() {
+	editData();
+	$('.answers').html(JSON.stringify(data.answers, null, 2));
+});
+

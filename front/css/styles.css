@@ -2,7 +2,7 @@ body {
 	background-color: #DEDEEA;
 }
 
-.winners, .odds {
+.add, .edit {
 	display: inline-block;
-	width: 15%;
+	width: 25%;
 }
