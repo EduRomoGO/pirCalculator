@@ -42,7 +42,7 @@ $('#calculateButton').on('click', function() {
 	// console.log(data.answers);
 	var params = { 'answers': data.answers };
 	$.post('/getResults', params, function(resData) {
-		$('.results').html('<br>The results calculated are: ' + resData.results);
+		$('.results').html('<br>The results calculated are: ' + resData.resultsString);
 	});
 });
 

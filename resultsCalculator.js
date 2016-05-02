@@ -46,30 +46,30 @@ function getResults(answers) {
 		// 5 - no contestada
 		// 6 - respuesta anulada
 		// console.log(answer);
-		var templateItem = getTemplateItem(answer.question, template),
+		var templateItem = getTemplateItem(parseInt(answer.question, 10), template),
 				wrongAnswer = {
-					'question': index,
+					'question': index + 1,
 					'myAnswer': 0,
 					'correctAnswer': 0
 				},
 				notAnsweredQuestion = {
-					'question': index,
+					'question': index + 1,
 					'correctAnswer': 0
 				};
 
 		console.log(templateItem);
-		if (answer.answer === templateItem.answer) results.correctAnswers++;
+		if (parseInt(answer.answer, 10) === templateItem.answer) results.correctAnswers++;
 		else {
 			if (templateItem.answer === 6) {
 				results.nullAnswers.list.push(templateItem.question);
 				results.nullAnswers.total++;
-			} else if (answer.answer === 5) {
+			} else if (parseInt(answer.answer, 10) === 5) {
 				results.notAnswered.total++;
 				notAnsweredQuestion.correctAnswer = templateItem.answer;
 				results.notAnswered.list.push(notAnsweredQuestion);
 			}
 			else {
-				wrongAnswer.myAnswer = answer.answer;
+				wrongAnswer.myAnswer = parseInt(answer.answer, 10);
 				wrongAnswer.correctAnswer = templateItem.answer;
 				results.wrongAnswers.total++;
 				results.wrongAnswers.list.push(wrongAnswer);
@@ -87,7 +87,7 @@ function getTemplateItem(questionNumber, template) {
 		// console.log(item);		
 		// console.log(questionNumber);
 		// console.log(item.question === parseInt(questionNumber, 10));
-		if (item.question === parseInt(questionNumber, 10)) templateItem = item;
+		if (item.question === questionNumber) templateItem = item;
 	});
 	// console.log(templateItem);
 	return templateItem;
